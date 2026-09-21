@@ -322,7 +322,21 @@
       behavior: 'smooth'
     });
   }
-</script>
+<function searchKonia() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+
+  const posts = document.querySelectorAll(".post");
+
+  posts.forEach(post => {
+    const text = post.innerText.toLowerCase();
+
+    if (text.includes(input)) {
+      post.style.display = "block";
+    } else {
+      post.style.display = "none";
+    }
+  });
+}>
   <div class="app">
 
     <header class="header">
@@ -337,7 +351,7 @@
 
     <div class="search">
       <div class="search-icon">⌕</div>
-      <input type="text" placeholder="Search people, services or places">
+      <input type="text" id="searchInput" placeholder="Search people, services or places" onkeyup="searchKonia()">
     </div>
 
     <div class="section-title">
@@ -345,27 +359,25 @@
       <div class="see-all">See all</div>
     </div>
 
-    <div class="categories">
+    <div class="category" onclick="alert('Discover vendors on Konia!')">
+  <div class="category-icon">🛍</div>
+  <p>Vendors</p>
+</div>
 
-      <div class="category">
-        <div class="category-icon">🛍</div>
-        <p>Vendors</p>
-      </div>
+      <div class="category" onclick="alert('Discover creators on Konia!')">
+  <div class="category-icon">🎨</div>
+  <p>Creators</p>
+</div>
 
-      <div class="category">
-        <div class="category-icon">🎨</div>
-        <p>Creators</p>
-      </div>
+     <div class="category" onclick="alert('Discover food vendors on Konia!')">
+  <div class="category-icon">🍔</div>
+  <p>Food</p>
+</div>
 
-      <div class="category">
-        <div class="category-icon">🍔</div>
-        <p>Food</p>
-      </div>
-
-      <div class="category">
-        <div class="category-icon">⚡</div>
-        <p>Services</p>
-      </div>
+      <div class="category" onclick="alert('Discover services on Konia!')">
+  <div class="category-icon">⚡</div>
+  <p>Services</p>
+</div>
 
     </div>
 
