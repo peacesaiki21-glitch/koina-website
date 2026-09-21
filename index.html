@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konia</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #100e29;
+      color: white;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 430px;
+      min-height: 100vh;
+      margin: auto;
+      padding: 22px 18px 100px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 173, 145, 0.18), transparent 32%),
+        linear-gradient(180deg, #191637, #0f0d26);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      font-size: 29px;
+      font-weight: 800;
+      color: #ffad91;
+      letter-spacing: -1px;
+    }
+
+    .profile {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #29264d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .welcome h1 {
+      font-size: 28px;
+      line-height: 1.15;
+      margin-bottom: 9px;
+    }
+
+    .welcome p {
+      color: #aaa7c0;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 22px;
+    }
+
+    .search {
+      background: #242143;
+      border-radius: 16px;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .search-icon {
+      font-size: 20px;
+      color: #ffad91;
+    }
+
+    .search input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: white;
+      font-size: 14px;
+    }
+
+    .search input::placeholder {
+      color: #85819d;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .section-title h2 {
+      font-size: 18px;
+    }
+
+    .see-all {
+      color: #ffad91;
+      font-size: 13px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 9px;
+      margin-bottom: 28px;
+    }
+
+    .category {
+      background: #242143;
+      border-radius: 16px;
+      padding: 14px 5px;
+      text-align: center;
+    }
+
+    .category-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      background: #ffad91;
+      color: #191637;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .category p {
+      font-size: 11px;
+      color: #ddd9e8;
+    }
+
+    .feature {
+      position: relative;
+      overflow: hidden;
+      padding: 22px;
+      border-radius: 24px;
+      margin-bottom: 30px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 173, 145, 0.22),
+          rgba(35, 32, 70, 0.95)
+        );
+      border: 1px solid rgba(255, 173, 145, 0.15);
+    }
+
+    .feature::after {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      right: -70px;
+      top: -65px;
+      border-radius: 50%;
+      background: rgba(255, 173, 145, 0.13);
+    }
+
+    .feature small {
+      color: #ffad91;
+      font-weight: bold;
+    }
+
+    .feature h2 {
+      font-size: 23px;
+      line-height: 1.2;
+      margin: 10px 0;
+      max-width: 290px;
+    }
+
+    .feature p {
+      color: #c0bdce;
+      font-size: 13px;
+      line-height: 1.5;
+      max-width: 290px;
+      margin-bottom: 18px;
+    }
+
+    .feature button {
+      border: none;
+      background: #ffad91;
+      color: #171432;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    .post {
+      background: #242143;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 17px;
+    }
+
+    .post-image {
+      height: 170px;
+      background:
+        linear-gradient(135deg, #393468, #171531);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #85819d;
+      font-size: 13px;
+    }
+
+    .post-content {
+      padding: 15px;
+    }
+
+    .post-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .avatar {
+      width: 37px;
+      height: 37px;
+      border-radius: 50%;
+      background: #ffad91;
+      color: #171432;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .user strong {
+      font-size: 13px;
+    }
+
+    .user small {
+      display: block;
+      color: #85819d;
+      margin-top: 3px;
+      font-size: 11px;
+    }
+
+    .post h3 {
+      font-size: 15px;
+      margin: 14px 0 6px;
+    }
+
+    .post p {
+      color: #aaa7c0;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 430px;
+      height: 72px;
+      background: rgba(18, 16, 43, 0.98);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .nav-item {
+      color: #817e99;
+      text-align: center;
+      font-size: 11px;
+    }
+
+    .nav-item span {
+      display: block;
+      font-size: 19px;
+      margin-bottom: 4px;
+    }
+
+    .nav-item.active {
+      color: #ffad91;
+    }
+
+    .create-button {
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      background: #ffad91;
+      color: #171432;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: bold;
+      margin-top: -20px;
+      box-shadow: 0 8px 25px rgba(255,173,145,0.25);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+
+    <header class="header">
+      <div class="logo">Konia</div>
+      <div class="profile">👤</div>
+    </header>
+
+    <section class="welcome">
+      <h1>Discover what's<br>happening around you.</h1>
+      <p>Connect with students, creators, vendors and opportunities.</p>
+    </section>
+
+    <div class="search">
+      <div class="search-icon">⌕</div>
+      <input type="text" placeholder="Search people, services or places">
+    </div>
+
+    <div class="section-title">
+      <h2>Explore</h2>
+      <div class="see-all">See all</div>
+    </div>
+
+    <div class="categories">
+
+      <div class="category">
+        <div class="category-icon">🛍</div>
+        <p>Vendors</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🎨</div>
+        <p>Creators</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🍔</div>
+        <p>Food</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">⚡</div>
+        <p>Services</p>
+      </div>
+
+    </div>
+
+    <section class="feature">
+
+      <small>✨ KONIA COMMUNITY</small>
+
+      <h2>Your campus. Your people. Your opportunities.</h2>
+
+      <p>
+        Discover useful services, connect with talented people,
+        showcase what you do and find opportunities around you.
+      </p>
+
+      <button>Explore Konia</button>
+
+    </section>
+
+    <div class="section-title">
+      <h2>For You</h2>
+      <div class="see-all">See all</div>
+    </div>
+
+    <article class="post">
+
+      <div class="post-image">
+        Marketplace image
+      </div>
+
+      <div class="post-content">
+
+        <div class="post-top">
+
+          <div class="user">
+
+            <div class="avatar">A</div>
+
+            <div>
+              <strong>Amara's Kitchen</strong>
+              <small>Food Vendor · 0.8 km</small>
+            </div>
+
+          </div>
+
+          <div>♡</div>
+
+        </div>
+
+        <h3>Fresh meals available today 🍲</h3>
+
+        <p>
+          Homemade meals prepared fresh for students.
+          Delivery available around campus.
+        </p>
+
+      </div>
+
+    </article>
+
+    <article class="post">
+
+      <div class="post-image">
+        Creator / service image
+      </div>
+
+      <div class="post-content">
+
+        <div class="post-top">
+
+          <div class="user">
+
+            <div class="avatar">J</div>
+
+            <div>
+              <strong>Jay Visuals</strong>
+              <small>Creative Service · 1.2 km</small>
+            </div>
+
+          </div>
+
+          <div>♡</div>
+
+        </div>
+
+        <h3>Need a flyer or design?</h3>
+
+        <p>
+          Professional graphics for businesses,
+          events and student brands.
+        </p>
+
+      </div>
+
+    </article>
+
+  </div>
+
+  <nav class="bottom-nav">
+
+    <div class="nav-item active">
+      <span>⌂</span>
+      Home
+    </div>
+
+    <div class="nav-item">
+      <span>⌕</span>
+      Explore
+    </div>
+
+    <div class="create-button">
+      +
+    </div>
+
+    <div class="nav-item">
+      <span>♡</span>
+      Saved
+    </div>
+
+    <div class="nav-item">
+      <span>👤</span>
+      Profile
+    </div>
+
+  </nav>
+
+</body>
+  </html>
