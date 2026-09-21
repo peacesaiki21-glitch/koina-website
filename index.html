@@ -316,7 +316,13 @@
 </head>
 
 <body>
-
+<script>
+  function exploreKonia() {
+    document.querySelector('.section-title').scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+</script>
   <div class="app">
 
     <header class="header">
@@ -374,7 +380,7 @@
         showcase what you do and find opportunities around you.
       </p>
 
-      <button>Explore Konia</button>
+  <button onclick="exploreKonia()">Explore Konia</button>
 
     </section>
 
@@ -464,10 +470,10 @@
       Home
     </div>
 
-    <div class="nav-item">
-      <span>⌕</span>
-      Explore
-    </div>
+    <div class="nav-item" onclick="exploreKonia()">
+  <span>⌕</span>
+  Explore
+</div>
 
     <div class="create-button">
       +
