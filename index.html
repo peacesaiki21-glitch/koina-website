@@ -317,26 +317,33 @@
 
 <body>
 <script>
+ function searchKonia() {
+    document.querySelector('.section-title').scrollIntoView({
+      behavior: 'smooth'
+   }
+<script>
   function exploreKonia() {
     document.querySelector('.section-title').scrollIntoView({
       behavior: 'smooth'
     });
   }
-<function searchKonia() {
-  const input = document.getElementById("searchInput").value.toLowerCase();
 
-  const posts = document.querySelectorAll(".post");
+  function searchKonia() {
+    const input = document.getElementById("searchInput").value.toLowerCase();
 
-  posts.forEach(post => {
-    const text = post.innerText.toLowerCase();
+    const posts = document.querySelectorAll(".post");
 
-    if (text.includes(input)) {
-      post.style.display = "block";
-    } else {
-      post.style.display = "none";
-    }
-  });
-}>
+    posts.forEach(post => {
+      const text = post.innerText.toLowerCase();
+
+      if (text.includes(input)) {
+        post.style.display = "block";
+      } else {
+        post.style.display = "none";
+      }
+    });
+  }
+</script>
   <div class="app">
 
     <header class="header">
