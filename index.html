@@ -153,8 +153,109 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
+    } .vendor-screen {
+  display: none;
+  padding: 22px 18px 100px;
+}
 
+.vendor-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.vendor-header h1 {
+  font-size: 25px;
+}
+
+.vendor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.vendor-card {
+  background: #242143;
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.vendor-image {
+  width: 78px;
+  height: 78px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #393468, #ffad91);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.vendor-info {
+  flex: 1;
+}
+
+.vendor-info h3 {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.vendor-info p {
+  color: #aaa7c0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.vendor-tag {
+  display: inline-block;
+  margin-top: 8px;
+  color: #ffad91;
+  font-size: 10px;
+  font-weight: bold;
+}
+<section class="vendor-screen" id="vendorScreen">
+
+  <div class="vendor-header">
+    <button class="back-button" onclick="closeVendors()">←</button>
+    <h1>Vendors</h1>
+  </div>
+
+  <div class="vendor-list">
+
+    <div class="vendor-card">
+      <div class="vendor-image">🍲</div>
+      <div class="vendor-info">
+        <h3>Amara's Kitchen</h3>
+        <p>Fresh meals · 0.8 km away</p>
+        <span class="vendor-tag">FOOD VENDOR</span>
+      </div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-image">👕</div>
+      <div class="vendor-info">
+        <h3>Campus Fits</h3>
+        <p>Fashion & accessories · 1.1 km away</p>
+        <span class="vendor-tag">FASHION</span>
+      </div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-image">📱</div>
+      <div class="vendor-info">
+        <h3>Tech Corner</h3>
+        <p>Gadgets & accessories · 1.4 km away</p>
+        <span class="vendor-tag">ELECTRONICS</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
     body {
       font-family: Arial, sans-serif;
       background: #100e29;
