@@ -5,8 +5,151 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Konia</title>
 
-  <style>
-    * {
+  .explore-screen {
+  display: none;
+  padding: 22px 18px 100px;
+}
+
+.explore-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.back-button {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 13px;
+  background: #242143;
+  color: white;
+  font-size: 20px;
+}
+
+.explore-header h1 {
+  font-size: 25px;
+}
+
+.explore-search {
+  background: #242143;
+  border-radius: 16px;
+  padding: 15px;
+  margin-bottom: 25px;
+}
+
+.explore-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font-size: 14px;
+}
+
+.explore-search input::placeholder {
+  color: #85819d;
+}
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.explore-card {
+  background: #242143;
+  border-radius: 20px;
+  padding: 20px 16px;
+  min-height: 125px;
+}.vendor-screen {
+  display: none;
+  padding: 22px 18px 100px;
+}
+
+.vendor-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.vendor-header h1 {
+  font-size: 25px;
+}
+
+.vendor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.vendor-card {
+  background: #242143;
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.vendor-image {
+  width: 78px;
+  height: 78px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #393468, #ffad91);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.vendor-info {
+  flex: 1;
+}
+
+.vendor-info h3 {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.vendor-info p {
+  color: #aaa7c0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.vendor-tag {
+  display: inline-block;
+  margin-top: 8px;
+  color: #ffad91;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.explore-card-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: #ffad91;
+  color: #191637;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  margin-bottom: 14px;
+}
+
+.explore-card h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.explore-card p {
+  color: #aaa7c0;
+  font-size: 11px;
+  line-height: 1.4;
+}
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -361,10 +504,7 @@
       <input type="text" id="searchInput" placeholder="Search people, services or places" onkeyup="searchKonia()">
     </div>
 
-    <div class="section-title">
-      <h2>Explore</h2>
-      <div class="see-all" onclick="alert('Explore all categories on Konia!')">See all</div>
-    <div class="category" onclick="alert('Discover vendors on Konia!')">
+    <div class="category" onclick="openVendors()">
   <div class="category-icon">🛍</div>
   <p>Vendors</p>
 </div>
