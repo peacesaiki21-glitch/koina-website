@@ -336,7 +336,7 @@
     posts.forEach(post => {
       const text = post.innerText.toLowerCase();
 
-      if (text.includes(input)) {
+      if (input === "" || text.includes(input)) {
         post.style.display = "block";
       } else {
         post.style.display = "none";
@@ -363,9 +363,7 @@
 
     <div class="section-title">
       <h2>Explore</h2>
-      <div class="see-all">See all</div>
-    </div>
-
+      <div class="see-all" onclick="alert('Explore all categories on Konia!')">See all</div>
     <div class="category" onclick="alert('Discover vendors on Konia!')">
   <div class="category-icon">🛍</div>
   <p>Vendors</p>
@@ -428,7 +426,7 @@
 
           </div>
 
-          <div>♡</div>
+         <div onclick="alert('Saved to your Konia collection!')">♡</div>
 
         </div>
 
